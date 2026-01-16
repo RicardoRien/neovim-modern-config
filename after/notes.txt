@@ -1,0 +1,4 @@
+This folder is for overwrite configuration (customize) of
+the rules that nvim-lspconfig has!
+
+-- List of languages: https://github.com/neovim/nvim-lspconfig/tree/master/lsp

@@ -1,0 +1,47 @@
+vim.api.nvim_create_augroup('bufcheck', {clear = true})
+
+-- Highlight Yanked Text
+vim.api.nvim_create_autocmd({ "TextYankPost" }, {
+  callback = function()
+    vim.highlight.on_yank { higroup = "Visual", timeout = 200 } -- DEPRECATED? TODO: REVISAR
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "VimEnter" }, {
+  callback = function()
+    vim.cmd "hi link illuminatedWord LspReferenceText"
+  end,
+})
+
+-- Start terminal in insert mode
+vim.api.nvim_create_autocmd('TermOpen',     {
+  group    = 'bufcheck',
+  pattern  = '*',
+  command  = 'startinsert | set winfixheight'
+})
+
+-- vim.api.nvim_create_autocmd('TermOpen',     {
+  -- group = vim.api.nvim_create_autocmd('custom-term-open', { clear = true }),
+  -- callback = function ()
+    -- vim.opt.number = false
+    -- vim.opt.relativenumber = false
+  -- end
+-- })
+
+-- No wrap in gitcommit, markdown and .txt files
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "gitcommit", "markdown", ".txt" },
+  callback = function()
+    vim.opt_local.wrap = true
+    vim.opt_local.linebreak = true
+  end,
+})
+
+-- indent when insert mode
+vim.keymap.set("n", "i", function()
+  if #vim.fn.getline(".") == 0 then
+    return [["_cc]]
+  else
+    return "i"
+  end
+end, { expr = true, desc = "properly indent on empty line when insert" })
