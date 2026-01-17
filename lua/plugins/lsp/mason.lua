@@ -16,6 +16,13 @@ return {
         "prismals",
         "pyright",
         "eslint",
+        "rust_analyzer",
+        "dockerls",
+        "jsonls",
+        "prismals",
+        "yamlls",
+        "solargraph",
+        "bashls"
       },
     },
     dependencies = {

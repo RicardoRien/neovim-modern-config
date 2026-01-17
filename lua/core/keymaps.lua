@@ -127,23 +127,25 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 -- Find better map (this use TAB)
 --[[ keymap("i", "<C-c>", "copilot#Accept('<CR>')", { expr=true, silent=true }) ]]
   
--- Telescope
+------------------------ Telescope ------------------------
 keymap("n", "<leader>b", "<cmd>Telescope buffers<cr>", opts)
 keymap("n", "<leader>1", "<cmd>Telescope diagnostics<cr>", opts)
 keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
 -- Live Grep: find a word inside the folder
 keymap("n", "<c-g>", ":Telescope live_grep<CR>", opts)
-
-keymap("n", "<c-f>", ":Navbuddy<CR>", opts)
-
 keymap("n", "<c-c>", ":Telescope neoclip<CR>", opts)
-
--- Nvimtree
--- keymap("n", "<leader>n", ":NvimTreeToggle<cr>", opts)
-keymap('n', '<leader>n', ':Neotree filesystem toggle left<CR>', { desc = "Toggle Neo-tree" })
+-----------------------------------------------------------
+------------------------ Navbuddy ------------------------
+-- keymap("n", "<c-f>", ":Navbuddy<CR>", opts)
+-- CHECK: lua/plugins/navbuddy.lua
+-----------------------------------------------------------
+------------------------ Nvimtree ------------------------
+keymap("n", "<leader>n", ":NvimTreeToggle<cr>", opts)
+-- keymap('n', '<leader>n', ':Neotree filesystem toggle left<CR>', { desc = "Toggle Neo-tree" })
+-----------------------------------------------------------
 
 -- Buffer Delete
-keymap("n", "<leader>d", ":Bdelete!<CR>", opts)
+keymap("n", "<leader>d", ":bd<CR>", opts)
 
 -- Change between relative numbers and normal numbers
 vim.cmd [[nmap <f2> :set norelativenumber! number?<cr>]]
@@ -161,3 +163,9 @@ vim.cmd [[command! Q :q]]
 --[[ vim.keymap.set('n', 'v', 'mav', { noremap = true }) ]]
 --[[ vim.keymap.set('v', '<Esc>', "<Esc>`a", { noremap = true, silent = true }) ]]
 
+-- Emmet
+vim.cmd([[
+  let g:user_emmet_mode='n' " only enable normal mode functions
+  let g:user_emmet_leader_key=','
+  autocmd FileType html,css,javascript.jsx EmmetInstall
+]])
