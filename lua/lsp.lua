@@ -50,8 +50,23 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
     opts.desc = "Restart LSP"
     keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
+    -- Toggle Loclist (Fix para <Leader>q)
+    vim.keymap.set("n", "<Leader>q", function()
+      vim.diagnostic.setloclist({ open = false }) 
+      local window = vim.api.nvim_get_current_win()
+      vim.cmd("lwindow") 
+      pcall(vim.api.nvim_set_current_win, window)
+    end, opts)
+
+    -- Format
+    vim.api.nvim_buf_create_user_command(ev.buf, "Format", function()
+      vim.lsp.buf.format({ async = true })
+    end, {})
+    vim.keymap.set("n", "<leader>m", "<cmd>Format<cr>", opts)
+
   end,
 })
+
 
 -- vim.lsp.inlay_hint.enable(true)
 

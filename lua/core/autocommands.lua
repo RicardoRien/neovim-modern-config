@@ -1,3 +1,4 @@
+require("nvim-tree").setup()
 vim.api.nvim_create_augroup('bufcheck', {clear = true})
 
 -- Highlight Yanked Text

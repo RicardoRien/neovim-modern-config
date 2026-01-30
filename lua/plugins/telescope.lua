@@ -3,7 +3,6 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-    -- Dependencias necesarias para las extensiones que cargas abajo
     "nvim-telescope/telescope-media-files.nvim",
     "nvim-telescope/telescope-file-browser.nvim",
     "AckslD/nvim-neoclip.lua",
@@ -109,8 +108,8 @@ return {
       },
     })
 
-    -- Cargar las extensiones AL FINAL de la configuración
-    -- Es importante usar pcall aquí también por si alguna dependencia falla
+    -- Loads extensions at the end of the file!
+    -- Use pcall because if something fail, we are protected.
     pcall(telescope.load_extension, "media_files")
     pcall(telescope.load_extension, "file_browser")
     pcall(telescope.load_extension, "neoclip")

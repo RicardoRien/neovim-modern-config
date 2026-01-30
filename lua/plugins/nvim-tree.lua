@@ -37,7 +37,7 @@ return {
         custom = { ".git" },
         exclude = {},
       },
-      update_cwd = true,
+      update_cwd = true, -- false si sientes que el árbol "pierde" la visión general del proyecto. 
       renderer = {
         add_trailing = false,
         group_empty = false,
@@ -99,7 +99,7 @@ return {
       },
       update_focused_file = {
         enable = true,
-        update_cwd = true,
+        update_cwd = true, -- false si sientes que el árbol "pierde" la visión general del proyecto. 
         ignore_list = {},
       },
       git = {

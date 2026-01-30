@@ -140,7 +140,7 @@ keymap("n", "<c-c>", ":Telescope neoclip<CR>", opts)
 -- CHECK: lua/plugins/navbuddy.lua
 -----------------------------------------------------------
 ------------------------ Nvimtree ------------------------
-keymap("n", "<leader>n", ":NvimTreeToggle<cr>", opts)
+vim.keymap.set("n", "<leader>n", ":NvimTreeFindFileToggle<CR>") -- ESTO ABRE Y BUSCA
 -- keymap('n', '<leader>n', ':Neotree filesystem toggle left<CR>', { desc = "Toggle Neo-tree" })
 -----------------------------------------------------------
 
@@ -158,14 +158,10 @@ vim.cmd [[nmap <f4> :set wrap linebreak nolist<cr>]]
 
 -- ":Q" as ":q"
 vim.cmd [[command! Qa :qa]]
-vim.cmd [[command! Q :q]]
+vim.cmd [[command! Q :qa]]
 
 --[[ vim.keymap.set('n', 'v', 'mav', { noremap = true }) ]]
 --[[ vim.keymap.set('v', '<Esc>', "<Esc>`a", { noremap = true, silent = true }) ]]
 
 -- Emmet
-vim.cmd([[
-  let g:user_emmet_mode='n' " only enable normal mode functions
-  let g:user_emmet_leader_key=','
-  autocmd FileType html,css,javascript.jsx EmmetInstall
-]])
+-- lua/plugins/emmet-vim.lua
