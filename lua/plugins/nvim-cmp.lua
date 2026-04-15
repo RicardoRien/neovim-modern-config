@@ -58,6 +58,15 @@ return {
 
 		-- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
 		require("luasnip.loaders.from_vscode").lazy_load()
+		local snippet_path = vim.fn.stdpath("config") .. "/lua/snippets"
+		require("luasnip.loaders.from_vscode").lazy_load({
+			paths = {
+				snippet_path .. "/javascript",
+				snippet_path .. "/python",
+				snippet_path .. "/react_ts",
+				snippet_path .. "/typescript",
+			},
+		})
 
 		----- Customize Borders -----
 		local border_style = {

@@ -1,0 +1,44 @@
+{
+  "name": "custom js snip",
+  "displayName": "rick_snip",
+  "description": "My own JS snippets",
+  "version": "0.0.1",
+  "browser": "./lib/index.js",
+  "keywords": [
+    "snippets",
+    "customizable",
+    "javascript",
+    "typescript"
+  ],
+  "license": "MIT",
+  "activationEvents": [
+    "onLanguage:javascript",
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "reactSnippets.search",
+        "title": "Snippet search"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "javascript",
+        "path": "./generated.json"
+      },
+      {
+        "language": "javascriptreact",
+        "path": "./generated.json"
+      },
+      {
+        "language": "typescript",
+        "path": "./generated.json"
+      },
+      {
+        "language": "typescriptreact",
+        "path": "./generated.json"
+      }
+    ]
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "arrowFunctionTs": {
+    "key": "arrowFunctionTs",
+    "prefix": "afn",
+    "body": [
+      "const ${1:first: string} = ():any => {",
+      "",
+      "}"
+    ],
+    "description": "Creates a arrow function",
+    "scope": "typescript,typescriptreact"
+  },
+  "exportArrowFunctionTs": {
+    "key": "exportArrowFunctionTs",
+    "prefix": "eafn",
+    "body": [
+      "export const ${1:first: string} = ():any => {",
+      "",
+      "}"
+    ],
+    "description": "Creates a arrow function",
+    "scope": "typescript,typescriptreact"
+  },
+  "interface": {
+    "key": "interface",
+    "prefix": "in",
+    "body": [
+     "interface Props {",
+     "  name: string",
+     "  handleClick: MouseEventHandler,",
+     "}"
+    ],
+    "scope": "typescript,typescriptreact,javascriptreact"
+  }
+}

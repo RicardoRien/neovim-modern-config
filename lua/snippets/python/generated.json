@@ -1,0 +1,12 @@
+{
+  "arrowFunctionTs": {
+    "key": "ifName",
+    "prefix": "ifname",
+    "body": [
+      "if __name__ == \"__main__\":",
+      "    callFunction()"
+    ],
+    "description": "call if name",
+    "scope": "python,py"
+  }
+}

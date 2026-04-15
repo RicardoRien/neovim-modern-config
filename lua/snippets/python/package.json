@@ -1,0 +1,32 @@
+{
+  "name": "custom py snip",
+  "displayName": "rick_snip_py",
+  "description": "My own PY snippets",
+  "version": "0.0.1",
+  "browser": "./lib/index.py",
+  "keywords": [
+    "snippets",
+    "customizable",
+    "python"
+  ],
+  "license": "MIT",
+  "activationEvents": [
+    "onLanguage:python",
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "typescriptSnippets.search",
+        "title": "Snippet search"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "python",
+        "path": "./generated.json"
+      }
+    ]
+  }
+}
+
