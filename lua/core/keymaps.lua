@@ -107,7 +107,9 @@ keymap("v", ">", ">gv", opts)
 -- Move text up and down
 keymap("v", "<A-j>", ":m .+1<CR>==", opts)
 keymap("v", "<A-k>", ":m .-2<CR>==", opts)
-keymap("v", "p", '"_dP', opts) -- Stay last Yank word. 
+
+-- Pega texto seleccionado sin copiar el texto que fue reemplazado
+keymap("x", "p", "P", opts)
 
 -- Visual Block --
 -- Move text up and down
@@ -145,7 +147,7 @@ vim.keymap.set("n", "<leader>n", ":NvimTreeFindFileToggle<CR>") -- ESTO ABRE Y B
 -----------------------------------------------------------
 
 -- Buffer Delete
-keymap("n", "<leader>d", ":bd<CR>", opts)
+keymap("n", "<leader>d", ":Bdelete!<CR>", opts)
 
 -- Change between relative numbers and normal numbers
 vim.cmd [[nmap <f2> :set norelativenumber! number?<cr>]]
